@@ -78,7 +78,7 @@ export type PluginOptions = {
    * Hide the default selector manager
    * @default true
    */
-   hideSelector?: boolean;
+  hideSelector?: boolean;
 
   /**
    * Experimental: use XML parser instead of HTML.
@@ -86,7 +86,7 @@ export type PluginOptions = {
    * @default false
    * @experimental
    */
-   useXmlParser?: boolean;
+  useXmlParser?: boolean;
 
   /**
    * Column padding (this way it's easier to select columns)
@@ -116,6 +116,11 @@ export type PluginOptions = {
    * @default true
    */
   useCustomTheme?: boolean;
+  /**
+   * Patched. Add custom mjml components
+   * @default true
+   */
+  components?: ((editor: grapesjs.Editor, { opt, coreMjmlModel, coreMjmlView, sandboxEl }: any) => void)[];
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
@@ -142,6 +147,7 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opt = {}) => {
     columnsPadding: '10px 0',
     i18n: {},
     fonts: {},
+    components: [],
     // Export 'mjml', 'html' or both (leave empty) TODO
     // exportOnly: '',
     ...opt,

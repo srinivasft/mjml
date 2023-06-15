@@ -303,4 +303,6 @@ export default (editor: grapesjs.Editor, opt: RequiredPluginOptions) => {
     loadRaw,
   ]
   .forEach(module => module(editor, compOpts));
+
+  opt.components.forEach(module => module(editor, compOpts))
 };
