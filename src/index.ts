@@ -1,4 +1,4 @@
-import type { Plugin } from 'grapesjs';
+import type { Plugin, Editor } from 'grapesjs';
 import loadBlocks from './blocks';
 import loadComponents from './components';
 import loadCommands from './commands';
@@ -120,7 +120,7 @@ export type PluginOptions = {
    * Patched. Add custom mjml components
    * @default true
    */
-  components?: ((editor: grapesjs.Editor, { opt, coreMjmlModel, coreMjmlView, sandboxEl }: any) => void)[];
+  components?: ((editor: Editor, { opt, coreMjmlModel, coreMjmlView, sandboxEl }: any) => void)[];
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
