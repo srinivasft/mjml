@@ -80,9 +80,9 @@ export default (editor: Editor, opt: RequiredPluginOptions) => {
       for (let prop in attr) {
         const value = attr[prop];
 
-        if (value && value === style[prop]) {
-          delete attr[prop];
-        }
+        // if (value && value === style[prop]) {
+        //   delete attr[prop];
+        // }
       }
 
       return attr;
